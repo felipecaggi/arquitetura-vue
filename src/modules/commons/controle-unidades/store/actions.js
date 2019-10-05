@@ -1,7 +1,7 @@
+/* eslint-disable */
 import services from "@/core/http";
 import * as types from "./mutation-types";
 
-// eslint-disable-next-line
 export const ActionCadastrarUnidade = ({}, payload) => {
   return services.cadastroUnidade.cadastrar(payload);
 };
