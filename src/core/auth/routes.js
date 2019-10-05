@@ -1,8 +1,8 @@
-import LoginScript from "./pages/login/LoginScript";
+import Login from "./pages/login/Login";
 export default [
   {
     path: "/login",
     name: "login",
-    component: LoginScript
+    component: Login
   }
 ];

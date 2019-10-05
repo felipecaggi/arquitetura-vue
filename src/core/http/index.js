@@ -13,7 +13,6 @@ http.options.root = "https://localhost:44356/api/";
 http.interceptors.push(interceptors);
 
 Object.keys(services).map(service => {
-  //isso transforma as objetos do services em requisicoes http
   services[service] = Vue.resource("", {}, services[service]);
 });
 

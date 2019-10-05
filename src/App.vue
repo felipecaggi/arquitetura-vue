@@ -1,5 +1,7 @@
 <template>
   <v-app>
+    <nav-bar v-if="showNavbar" @irPara="irPara" @deslogar="deslogar"></nav-bar>
+
     <v-content>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
@@ -9,27 +11,39 @@
         </v-row>
       </v-container>
     </v-content>
+
+    <v-footer app>
+      <span>&copy; Team Stormbreaker | 2019</span>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
+import NavBar from "./components/NavBar";
+import { mapActions } from "vuex";
 
 export default {
-  name: 'App',
-  mounted() {
-    this.$router.push({ name: "login" });
+  name: "App",
+  components: {
+    NavBar
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    showNavbar() {
+      return this.$route.name !== "login";
+    }
+  },
+  methods: {
+    ...mapActions("auth", ["ActionSignOut"]),
+    irPara(pagina) {
+      this.$router.push({ name: pagina });
+    },
+    deslogar() {
+      this.ActionSignOut();
+      this.$router.push({ name: "login" });
+    }
   }
-
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

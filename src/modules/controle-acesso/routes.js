@@ -1,8 +1,13 @@
-import LoginScript from "./pages/login/LoginScript";
+import CadastroUsuario from "./cadastro-usuario/CadastroUsuario";
 export default [
-    {
-        path: "/login",
-        name: "login",
-        component: LoginScript
-    }
+  {
+    path: "/cadastro/usuario",
+    name: "cadastroUsuario",
+    component: CadastroUsuario
+  },
+  {
+    path: "/listagem-usuario",
+    name: "cadastro-usuario",
+    component: CadastroUsuario
+  }
 ];
